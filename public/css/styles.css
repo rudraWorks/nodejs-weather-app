@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: 100;
+}
+h2,h1{
+     font-weight: 100;
+     
+}
+h2{
+    color: gray;
+}
+#container{
+    background-color: rgb(255, 255, 255);
+}
+#main{
+    /* background-color: rgb(143, 28, 28); */
+    width: 50%;
+    margin-left: 20%;
+    /* text-align: center; */
+}

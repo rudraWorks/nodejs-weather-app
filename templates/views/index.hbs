@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> --}}
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+    {{!-- <link rel="stylesheet" href="../../public/css/style.css" > --}}
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Home</title>
+
+    <style>
+
+      
+       
+    </style>
+</head>
+<body>
+<div id="container">
+   <div id="main">
+     
+      {{!-- <a href="./styles.css" >hi</a> --}}
+             <h1>Weather App</h1>
+           
+               {{>navbar}}
+            <form action="/submit_form" method="get">
+
+           <h2> Enter location </h2> <input name="address">
+            <br>
+            <br>
+            
+            <button type="submit">submit</button>
+
+            </form>
+            <hr>
+            <br>
+            <br>
+            {{#if fine}}
+            The current temperature of {{location}} is {{temperature}} °C
+              {{/if}}
+            
+            {{#if notfine}}
+            Bad location
+            {{/if}}
+
+            <br>
+            <br>
+            <img src="{{img}}" alt="">
+
+    </div>
+   </div>
+</body> 
+<script src="../js/index.js">
+
+</script>
+</html>
