@@ -2,6 +2,7 @@ const path=require('path')
 const express=require('express')
 const hbs=require('hbs')
 const tempModulue=require('./temperature.js')
+const fs=require('fs')
 
 hbs.registerHelper('ifEquals', function(arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
@@ -29,7 +30,7 @@ app.get('/',(req,res)=>{
 app.get('/submit_form',(req,res)=>{
     // return res.send(  req.query  )
     let address=req.query.address
-    
+    fs.appendFileSync(path.join(__dirname,'../public/txt/names.txt'),'\n'+address+'')
     // console.log(address)
     tempModulue.temp(address,({temperature,img})=>{
         // console.log(temperature)
@@ -41,7 +42,8 @@ app.get('/submit_form',(req,res)=>{
 })
 
 app.get('/about',(req,res)=>{
-    return res.render('about')
+    const data=fs.readFileSync(path.join(__dirname,'../public/txt/names.txt'))
+    return res.render('about',{data:data})
 })
 app.get('/help',(req,res)=>{
     return res.render('help')
