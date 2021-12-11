@@ -7,6 +7,7 @@ hbs.registerHelper('ifEquals', function(arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
 const app=express() 
+const port=process.env.PORT || 3000
 
 const staticPath=path.join(__dirname,'../public')
 const partialsPath=path.join(__dirname,'../templates/partials')
@@ -45,7 +46,7 @@ app.get('/about',(req,res)=>{
 app.get('/help',(req,res)=>{
     return res.render('help')
 })
-app.listen('3000',()=>{
-    console.log('listening on port 3000')
+app.listen(port,()=>{
+    console.log('listening on port '+port)
 }) 
 
